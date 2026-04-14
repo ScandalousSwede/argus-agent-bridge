@@ -1,0 +1,16 @@
+{
+  "name": "argus-agent-bridge",
+  "version": "2.0.0",
+  "description": "Layer 2 LAN Agent Bridge — 24/7 bidirectional text coordination between AI agents",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test:health": "curl -s http://localhost:3018/health | node -e \"process.stdin.on('data',d=>{const j=JSON.parse(d);console.log(j.ok?'OK':'FAIL');process.exit(j.ok?0:1)})\"",
+    "test:send": "curl -s -X POST http://localhost:3018/bridge/send -H 'Content-Type: application/json' -d '{\"from\":\"test\",\"to\":\"argus\",\"content\":\"Bridge test message\"}'"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}
