@@ -30,7 +30,7 @@ Usage (WebSocket push, async):
 
     async def main():
         client = AgentBridgeClientAsync(
-            bridge_url="ws://10.0.0.128:3018",
+            bridge_url="ws://localhost:3018",
             agent_id="argus",
             api_key="your-key"
         )
